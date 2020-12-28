@@ -6,25 +6,14 @@ class App extends Component {
     super(props);
 
     this.state = { lat: null, errorMessage: "" };
-
-    window.navigator.geolocation.getCurrentPosition(
-      (position) => {
-        this.setState({ lat: position.coords.latitude });
-      },
-      (err) => {
-        this.setState({
-          errorMessage: err.message,
-        });
-      }
-    );
   }
 
+  //componentDidMount is a good place to do data loading
   componentDidMount() {
-    console.log("My component was rendered to the screen");
-  }
-
-  componentDidUpdate() {
-    console.log("My component was just updated - it rerendered!");
+    window.navigator.geolocation.getCurrentPosition(
+      (position) => this.setState({ lat: position.coords.latitude }),
+      (err) => this.setState({ errorMessage: err.message })
+    );
   }
 
   render() {
