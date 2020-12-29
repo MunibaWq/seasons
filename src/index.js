@@ -19,7 +19,7 @@ class App extends Component {
       return <div>Error: {this.state.errorMessage}</div>;
     } else if (!this.state.errorMessage && this.state.lat) {
       return <SeasonDisplay lat={this.state.lat} />;
-    } else return <Spinner />;
+    } else return <Spinner message="Please accept location request" />;
   }
 }
 
