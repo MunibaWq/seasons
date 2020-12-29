@@ -27,7 +27,10 @@ const SeasonDisplay = (props) => {
 
   const { text, iconName } = seasonConfig[season]; //{text,iconName}
 
-  //   console.log(season);
+  console.log(season);
+  console.log(seasonConfig);
+  console.log(seasonConfig[season]); //need square brackets because seasonConfig is NOT A FUNCTION but an object
+
   return (
     <div className={`season-display ${season}`}>
       <i className={`icon-left massive ${iconName} icon`} />
